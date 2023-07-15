@@ -1,15 +1,12 @@
-package com.ksa.mealz
+package com.ksa.mealz.ui.meals
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.ksa.mealz.ui.theme.MealzTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,26 +15,23 @@ class MainActivity : ComponentActivity() {
         setContent {
             MealzTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    Greeting("Android")
-                }
+                MealsCategoriesScreen()
+
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun MealsCategoriesScreen() {
+    val viewModel : MealsCategoriesViewModel = viewModel()
+    Text(text = "Hello ! Welcome to Mealz App")
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     MealzTheme {
-        Greeting("Android")
+        MealsCategoriesScreen()
     }
 }
